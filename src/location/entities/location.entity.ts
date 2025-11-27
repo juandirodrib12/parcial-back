@@ -7,13 +7,13 @@ export class Location {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column('text')
+    @Column()
     name: string;
 
-    @Column('text')
+    @Column()
     type: string;
 
-    @Column('number')
+    @Column()
     cost: number;
 
     @OneToOne(() => Character, character => character.location)

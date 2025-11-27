@@ -7,13 +7,13 @@ export class Character {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column('text')
+    @Column()
     name: string;
 
-    @Column('number')
+    @Column()
     salary: number;
 
-    @Column('boolean')
+    @Column()
     employee: boolean;
 
     @OneToOne(() => Location, location => location.owner, { cascade: true })

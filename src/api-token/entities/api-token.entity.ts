@@ -6,12 +6,12 @@ export class ApiToken {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column('text', { unique: true })
+    @Column({ unique: true })
     token: string;
 
-    @Column('boolean', { default: true })
+    @Column({ default: true })
     isActive: boolean;
 
-    @Column('number', { default: 10 })
+    @Column({ default: 10 })
     requestsLeft: number;
 }

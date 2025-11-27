@@ -6,8 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApiToken } from './entities/api-token.entity';
 
 @Module({
-  controllers: [ApiTokenController, ApiTokenGuard],
-  providers: [ApiTokenService],
+  controllers: [ApiTokenController],
+  providers: [ApiTokenService, ApiTokenGuard],
   imports: [
     TypeOrmModule.forFeature([ApiToken])
   ],
