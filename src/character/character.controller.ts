@@ -12,23 +12,16 @@ export class CharacterController {
     return this.characterService.create(createCharacterDto);
   }
 
-  @Get()
-  findAll() {
-    return this.characterService.findAll();
+  @Patch(':id/favorites/:locationId')
+  addFavoriteLocation(
+    @Param('id') id: string,
+    @Param('locationId') locationId: string,
+  ) {
+    return this.characterService.addFavorite(+id, +locationId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.characterService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCharacterDto: UpdateCharacterDto) {
-    return this.characterService.update(+id, updateCharacterDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.characterService.remove(+id);
+  @Get(':id/taxes')
+  calculateTaxes(@Param('id') id: string) {
+    return this.characterService.calculateTaxes(+id);
   }
 }
