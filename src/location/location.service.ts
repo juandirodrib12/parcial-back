@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateLocationDto } from './dto/create-location.dto';
 import { UpdateLocationDto } from './dto/update-location.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -22,7 +22,7 @@ export class LocationService {
   async create(createLocationDto: CreateLocationDto) {
     const owner = await this.characterRepository.findOne({ where: { id: createLocationDto.ownerId } });
     if (!owner) {
-      throw new Error('Character not found');
+      throw new NotFoundException('Owner character not found');
     }
     const newLocation = this.locationRepository.create({
       ...createLocationDto,
