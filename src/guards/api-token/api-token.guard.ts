@@ -18,6 +18,7 @@ export class ApiTokenGuard implements CanActivate {
     if (!isValid) {
       throw new UnauthorizedException('Invalid API token');
     }
+    await this.apiTokenService.reduceRequests(apiToken);
     return true;
   }
 }
