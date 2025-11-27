@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApiTokenModule } from './api-token/api-token.module';
+import { CharacterModule } from './character/character.module';
+import { LocationModule } from './location/location.module';
 
 @Module({
   imports: [
@@ -18,7 +20,9 @@ import { ApiTokenModule } from './api-token/api-token.module';
       autoLoadEntities: true,
       synchronize: true, // SOLO EN DESARROLLO
     }),
-    ApiTokenModule
+    ApiTokenModule,
+    CharacterModule,
+    LocationModule
   ],
   controllers: [AppController],
   providers: [AppService],
